@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Assignment</title>
+  </head>
+  <body>
+    <h1 id="main-heading">JavaScript Assignment</h1>
+    <p>Learning JavaScript is fun!</p>
+    <div id="dynamic-content"></div>
+    <div id="greeting"></div>
+    <div id="eligibility"></div>
+    <div id="numbers-list"></div>
+
+    <script>
+      // Part 1: JavaScript Basics
+      // Variables and Data Types
+      var name = "Eliz Wan"; // string
+      var age = 23; // integer
+      var isStudent = true; // boolean
+      var subjects = ["Math", "Science", "History"]; // array
+      var person = { firstName: "Jane", lastName: "Doe" }; //object
+
+      console.log("Name: " + name + " (Type: " + typeof name + ")");
+      console.log("Age: " + age + " (Type: " + typeof age + ")");
+      console.log(
+        "Is student: " + isStudent + " (Type: " + typeof isStudent + ")"
+      );
+      console.log("Subjects: " + subjects + " (Type: " + typeof subjects + ")");
+      console.log(
+        "Person: " + JSON.stringify(person) + " (Type: " + typeof person + ")"
+      );
+
+      // Operators
+      function calculator() {
+        var num1 = parseFloat(prompt("Enter the first number:"));
+        var num2 = parseFloat(prompt("Enter the second number:"));
+        var operation = prompt("Choose an operation (+, -, *, /):");
+
+        if (isNaN(num1) || isNaN(num2)) {
+          console.log("Invalid input. Please enter valid numbers.");
+          return;
+        }
+
+        switch (operation) {
+          case "+":
+            console.log("Result: " + (num1 + num2));
+            break;
+          case "-":
+            console.log("Result: " + (num1 - num2));
+            break;
+          case "*":
+            console.log("Result: " + num1 * num2);
+            break;
+          case "/":
+            if (num2 === 0) {
+              console.log("Error: Division by zero.");
+            } else {
+              console.log("Result: " + num1 / num2);
+            }
+            break;
+          default:
+            console.log("Invalid operation. Please choose +, -, *, or /.");
+        }
+      }
+      // Call the calculator function
+      calculator();
+
+      // Functions
+      function greetUser(name) {
+        return "Hello, " + name + "!";
+      }
+
+      var greetingMessage = greetUser("Audria");
+      document.getElementById("greeting").innerText = greetingMessage;
+
+      // Part 2: JavaScript Control Structures
+      // If Statements
+      var ageInput = parseInt(prompt("Enter your age:"));
+
+      if (ageInput >= 21) {
+        document.getElementById("eligibility").innerText =
+          "You are eligible to vote.";
+      } else {
+        document.getElementById("eligibility").innerText =
+          "You are not eligible to vote.";
+      }
+
+      // Loops
+      var ol = document.createElement("ol");
+      for (var i = 1; i <= 10; i++) {
+        var li = document.createElement("li");
+        li.innerText = i;
+        ol.appendChild(li);
+      }
+      document.getElementById("numbers-list").appendChild(ol);
+
+      // Part 3: Introduction to the DOM
+      // Selecting and Modifying HTML Elements
+      document.getElementById("main-heading").innerText =
+        "JavaScript in Action!";
+      var newParagraph = document.createElement("p");
+      newParagraph.innerText =
+        "This content was added dynamically using JavaScript.";
+      document.getElementById("dynamic-content").appendChild(newParagraph);
+    </script>
+  </body>
+</html>
